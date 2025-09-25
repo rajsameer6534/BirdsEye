@@ -6,10 +6,7 @@ BirdsEye also has advanced knowledge retrieval based on Retrieval-augmented gene
 
 The app also has authentication and database integrations, making it almost a complete package. 
 
-BirdsEye inherits a large portion of its building blocks from the GRAI 2.0 app that is under development at GeoRetina (www.georetina.com). In parallel with GRAI 2.0 (which will be merged to BirdsEye once it's stable), we will also keep BirdsEye updated for the community.
 
-### 🌍 Try BirdsEye: 
-https://BirdsEye.georetina.ai
 
 ----
 
