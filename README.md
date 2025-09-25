@@ -1,238 +1,128 @@
-# BirdsEye:Remote-Sensing-Based Geospatial Analysis
+🦅 BirdsEye: AI-Powered Geospatial Intelligence Platform (PS2: Multimodal Earth Analyst)
+BirdsEye is an advanced, Next.js 15 application engineered as an AI-powered geospatial intelligence platform. It is designed to autonomously fuse time-series satellite imagery with diverse spatial and semantic datasets to deliver dynamic, evidence-backed insights for any location on Earth.
 
-BirdsEye is a Next.js 15 application providing a chatbot-like user interface for performing remote-sensing-based geospatial analyses. It leverages Google Earth Engine (GEE) in the backend to process and analyze various remote sensing datasets in real time. Users can upload their own vector data, run advanced geospatial queries, and integrate the results with an AI Assistant for specialized tasks such as **land cover mapping**, **change detection**, and **air pollutant monitoring**. 
+Leveraging Google Earth Engine (GEE) in the backend and a natural language Chat-Style Interface, BirdsEye moves beyond static maps to offer modular, AI-driven workflows for complex analyses like change detection, urban planning, and socioeconomic assessments.
 
-BirdsEye also has advanced knowledge retrieval based on Retrieval-augmented generation (RAG), which can integrate geospatial analysis with non-geospatial/textual information. 
+The platform integrates Retrieval-Augmented Generation (RAG) to merge geospatial analysis with non-geospatial (textual) knowledge, providing Evidence-Based Storytelling through interactive dashboards and narrative summaries. It includes full authentication and database integrations for a complete user experience.
 
-The app also has authentication and database integrations, making it almost a complete package. 
+🎯 Objective: Multimodal Earth Analyst
+The core objective of BirdsEye is to solve the fragmentation and inaccessibility of modern geospatial analysis. It does this by creating a unified system that integrates:
 
+Satellite Imagery with AI-driven change detection.
 
+Vector Geodata (e.g., OpenStreetMap).
 
-----
+Tabular Data (Census, socioeconomic, real estate datasets).
 
-https://github.com/user-attachments/assets/d9940a0e-10c8-4d0e-9ec9-3dfd0966c664
+Environmental and Planning Data.
 
+This fusion delivers deep, dynamic insights inaccessible through traditional static GIS tools.
 
+✨ Key Features & Innovation
+Feature	PS2 Objective Alignment	Description
+Multimodal Data Fusion	Core Objective	Seamlessly align and analyze raster, vector, tabular, and text data across both space and time to provide a complete picture of an area.
+Modular Tool Chaining	Ideas to Explore	The AI Assistant can intelligently select and combine geospatial tools (e.g., NDVI analysis + OSM + document summarization) based on a user's natural language intent.
+Evidence-Based Storytelling	Ideas to Explore	Generate concise, narrative summaries and reports that are directly grounded in the visual and statistical evidence derived from the analysis.
+Transparent Source Control	User-Centric Sourcing	Allows users to define trusted data sources (e.g., municipal GIS maps) and provides an audit trail, citing all sources used in the final response.
+Interpretable Visualizations	Ideas to Explore	Outputs include interactive dashboards, dynamic maps using Maplibre GL, and charts that allow users to explore and validate the AI's insights.
+RAG & Knowledge Base	Semantic Data Fusion	Upload custom documents to build a local knowledge base, enabling the AI to combine location-based insights with custom document knowledge.
+Custom AI & GEE Integration	Analysis Toolkit	Leverages Google Earth Engine (GEE) for real-time remote sensing, combined with Vertex AI for deploying custom vision models (e.g., specific land cover tasks).
 
-## Contributing 🛠️
+Export to Sheets
+💻 Tech Stack
+Frontend: Next.js
 
- - If you're interested in contributing to this project, please contact us at `shahabj.github@gmail.com`.
- - If you are a new contributor, please first check out our [Contributing Guidelines](./CONTRIBUTING.md) to get started.
+Cloud & Processing: Google Cloud Platform (GCP)
 
+Google Earth Engine (GEE): Remote-sensing data invocation and processing.
 
-## Table of Contents
+Vertex AI: Hosting custom AI vision models for advanced classification.
 
-- [Features](#features-)
-- [Tech Stack](#tech-stack-)
-- [Getting Started](#getting-started-)
-- [Current Analyses](#available-geospatial-analyses-)
-- [Considerations](#considerations)
+Cloud Run: For containerized analysis and model invocation.
 
----
+AI/LLM: Vercel AI, OpenAI (ChatGPT API), LangChain (RAG)
 
-## Features ✨
+Database & Auth: Supabase (PostgreSQL)
 
-1. **Chat-Style Interface**
+Geospatial Utilities: Turf (for spatial operations), Maplibre GL (for dynamic map display)
 
-   - Interact with the system using natural language.
-   - The AI Assistant can execute various **geospatial functions** on your behalf.
+🚀 Getting Started
+1. Installation
+Clone the repo and install dependencies:
 
-2. **Google Earth Engine Integration**
+Bash
 
-   - Real-time access to satellite imagery and remote sensing datasets.
-   - Seamless backend processing for large-scale geospatial computations.
+git clone https://github.com/rajsameer6534/BirdsEye.git
+cd BirdsEye
+npm install
+GEE Setup: Create a Google Earth Engine (GEE) account and project. This is essential for all remote-sensing analysis. GEE is currently free for non-commercial use:
+https://earthengine.google.com
 
-3. **Import Your Own Vector Data**
+2. Set up Environment Variables
+Create a .env.local file with the required credentials:
 
-   - Upload and manage personal vector layers.
-   - Integrate your data with Earth Engine operations for advanced queries.
+Bash
 
-4. **Analysis Toolkit**
+# General
+BASE_URL=http://localhost:3000
 
-   - **Air Pollutants**
-   - **Urban Heat Island (UHI)** metrics
-   - **Land Cover** mapping & **Change Detection**
-   - Custom AI models deployed on **Vertex AI** for certain land cover tasks
+# Google Cloud Platform (GCP) - Crucial for GEE and custom models
+GOOGLE_MAPS_API_KEY=           
+VERTEXTAI_ENDPOINT_BASE_URL=   
+GEE_CLOUD_RUN_URL=             
+GCP_BUCKET_NAME=               
+GCP_SERVICE_ACCOUNT_KEY=       # Service Account key for GEE functions (must have all required permissions)
 
-5. **RAG & Knowledge Base**
-   - Enables a Retrieval-Augmented Generation (RAG) workflow.
-   - Upload documents to build a local knowledge base.
-   - The AI Assistant can then combine geospatial insights with custom document knowledge.
+# Large Language Model (LLM)
+OPENAI_API_KEY=                # Can be changed to another API supported by Vercel AI SDK.
 
+# Supabase (Database & Authentication)
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
-## Tech Stack 💻
-- Next.js
-- Google Cloud Platform (GCP):
-   - Google Earth Engine (remote-sensing data invocation and processing)
-   - Vertex AI (custom AI vision models)
-   - Cloud Run
-- Vercel AI
-- OpenAI (ChatGPT API)
-- Supabase (database and authentication)
-- LangChain (RAG)
-- Turf (for spatial operations)
-- Maplibre GL (for displaying maps)
+# Optional: Esri Integration
+ARCGIS_CLIENT_ID=
+ARCGIS_CLIENT_SECRET=
+ARCGIS_REDIRECT_URI=
 
-## Getting Started 🚀
+# Optional: Feedback Submission (Mailgun)
+MAILGUN_API_KEY=
+MAILGUN_DOMAIN=
+RECIPIENT_EMAIL=
+SENDER_EMAIL=
+3. Run the Development Server
+Bash
 
-1. Clone the repo
-
-2. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-3. Create a Google Earth Engine (GEE) account and project, otherwise no analysis can be done. Note that GEE is currently only free for non-commercial use:
-   - https://earthengine.google.com
-   
-5. Set up the environment variables
-
-- Create a `.env.local` file (or similar) with the required credentials for:
-
-  - Your base url:
-     ```
-     BASE_URL=http://localhost:3000   # Change it if you're using a different port. In production, you should set it to the url of the deployment. 
-     ```
-  - Google Cloud Platform (GCP):
-    ```
-      GOOGLE_MAPS_API_KEY=           # API key for Google maps. You can replace Google Maps with OSM if you want.
-      VERTEXTAI_ENDPOINT_BASE_URL=   # Base URL if you use your own custom models.
-      GEE_CLOUD_RUN_URL=             # URL for invoking a model hosted on VertexAI using cloud functions.
-      GCP_BUCKET_NAME=               # Bucket name to store the land-cover map generated by your custom model (if applicable).
-      GCP_SERVICE_ACCOUNT_KEY=       # Service Account key needed for GEE functions, depending on your GCP configurations. Make sure it has all the required permissions to use GEE.
-    ```
-
-  - Large Language Model (LLM) API Key:
-    ```
-    OPENAI_API_KEY=            # It shouldn't be necessarily OpenAI, thought. You can change it to any other API supported by Vercel AI SDK. However, you need to make some changes to the Chat API route.
-    ```
-  - For the database & authentication, the app uses Supabase. So you need the Supabase API keys as well:
-
-        NEXT_PUBLIC_SUPABASE_URL=
-        NEXT_PUBLIC_SUPABASE_ANON_KEY=
-
-  - If you want Esri integration, you also need the following keys in your env (skip this part if you don't want this integration):
-
-        ARCGIS_CLIENT_ID=
-        ARCGIS_CLIENT_SECRET=
-        ARCGIS_REDIRECT_URI=
-
-- For feedback submission, I just used a simple email-based pipeline based on Mailgun (skip this part if you don't want this feature):
-
-        MAILGUN_API_KEY=
-        MAILGUN_DOMAIN=
-        RECIPIENT_EMAIL=
-        SENDER_EMAIL=
-
-5. Run the develpment server
-
-       npm run dev
-
-
+npm run dev
 Visit http://localhost:3000 to view the application.
 
+🛢️ How to Set up Supabase Database, Storage Bucket, & Authentication
+BirdsEye uses Supabase for its PostgreSQL database and authentication. A free-tier plan is available and sufficient for development.
 
-<a name="custom_anchor_name"></a>
-## How to Set up Supabase Database, Storage Bucket, & Authentication 🛢️
+Database & Auth Setup: Set up a Supabase project and use the database schema found in the db-schema folder to configure your tables and authentication rules.
 
-Supabase has a free-tier, generous plan that you can use to work with the app.
+Knowledge Base Storage (Optional): To use the RAG feature, create a storage bucket on Supabase and name it exactly: documents_bucket. This bucket stores the PDF documents you upload for the Knowledge Base.
 
-As mentioned above, the database (PostgreSQL) and authentication are both hosted on Supabase. To set up them, you can either use the local dev (https://supabase.com/docs/guides/local-development/cli/getting-started) or online (https://supabase.com/docs/guides/database/overview).
-To set up the database and Supabase auth online, you need to create a supabase project & create the required databases and auth. 
-You can find the database schema of the app in the `db-schema` folder.
+📊 Available Geospatial Analyses
+The following are examples of the modular analyses currently available in the platform. These modules can be combined by the AI through tool-chaining to answer complex, multimodal questions:
 
-If you want to also use the Knowledge Base feature, you need to create a storage bucket on Supabase as well. The name of the bucket should be `documents_bucket`. This is where the PDF docs you upload to the Knowledge Base are stored. You can set up the bucket by going to the following link:
- - https://supabase.com/dashboard/project/_/storage/buckets
+#	Analysis Type	Description
+1	Urban Heat Island (UHI) Analysis	Evaluates temperature variations in urban areas compared to rural surroundings.
+2	Land-Use/Land-Cover Mapping	Uses Google DynamicWorld to classify land cover types.
+3	Land-Use/Land-Cover Change Mapping	Detects changes in land use over time using Google DynamicWorld.
+4	Air Pollution Analysis (Partial Implementation)	Analyzes air pollution patterns and trends.
 
-## Available Geospatial Analyses 📊
+Export to Sheets
+💡 Considerations
+Production Readiness: This app is not yet production-ready. Some functionalities are still under development, and known/unknown bugs exist.
 
-The app includes the following geospatial analyses:
+GEE Dependency: All remote-sensing analyses are based on GEE. Correct GEE environment setup is mandatory.
 
-| #  | Analysis Type                                    | Description |
-|----|------------------------------------------------|-------------|
-| 1  | **Urban Heat Island (UHI) Analysis**           | Evaluates temperature variations in urban areas compared to rural surroundings. |
-| 2  | **Land-Use/Land-Cover Mapping**                | Uses Google DynamicWorld to classify land cover types. |
-| 3  | **Land-Use/Land-Cover Change Mapping**         | Detects changes in land use over time using Google DynamicWorld. |
-| 4  | **Air Pollution Analysis** *(Not fully implemented)* | Analyzes air pollution patterns and trends. |
+Interpretation: GEE-based examples use simple implementations. Care should be taken while interpreting results, as some source data may not be fully up-to-date.
 
+🤝 Contributing & Support
+The BirdsEye platform is a massive undertaking, and contributions are highly encouraged to advance the Multimodal Earth Analyst objective!
 
+How to Contribute: Please check out the Contributing Guidelines before submitting a pull request.
 
-
-## Considerations💡
-- Note that all remote-sensing geospatial analyses, at least for now, are based on GEE in this app. So, if you don't set up your GEE environment correctly, no analysis can be done.
-- It should be noted that this app is not yet ready for production. The app has known bugs, and perhaps unknown ones 😁 Some functionalities have not been implemented yet.
-- I may have forgotten to include some steps in setting up the app! 😅 If there's missing information in the instructions, please open an issue and let me know to update the instructions accordingly.
-- GEE-based geospatial analyses are just simple examples of how such analyses can be implemented and added. Some of them are using data that may not be up-to-date. As a result, care should be taken while interpreting the results.
-- There are parts that should be refactored or re-designed either because they could have been used/invoked in a better place, or because they should've been implemented in a much better manner.
-
-
-## Frequently Asked Questions (FAQ) 📌
-
-<details>
-  <summary>🔹 General Questions</summary>
-  
-  **❓ Is this project free to use?**  
-  *Yes! This open-source version is free to use under the terms of its license. However, note that Google Earth Engine has restrictions on commercial usage.*
-  
-</details>
-
-<details>
-  <summary>🔹 Support &amp; Contributions</summary>
-  
-  **❓ How can I get support for issues?**  
-  - *If you encounter a bug or have a feature request, please [open an issue](../../issues) on GitHub.*  
-  - *Be as detailed as possible when describing your issue (include screenshots, step-by-step explanations, error logs, and any relevant details). Abstract or vague questions will not be answered.*  
-  - *For other questions, feel free to reach out at [shahabj.github@gmail.com](mailto:shahabj.github@gmail.com).*
-  
-  **❓ How can I contribute?**  
-  *We welcome contributions! Please check out the [Contributing Guidelines](./CONTRIBUTING.md) before submitting a pull request or opening an issue. Your help in improving this project is greatly appreciated.*
-  
-</details>
-
-<details>
-  <summary>🔹 Features &amp; Customization</summary>
-  
-  **❓ Can I request additional analyses or features?**  
-  *Absolutely! You can:*
-  - *Suggest a feature by opening an issue.*
-  - *Fork the repository and implement your own changes.*  
-  *For advanced or custom solutions, please see [GRAI 2.0 (Enterprise Version)](#enterprise-version-grai-20) below.*
-  
-  **❓ Can I use my own geospatial datasets?**  
-  *Yes! The app allows you to import vector data and integrate it with Google Earth Engine for custom analyses. For raster data, at least for now, you need to either host them on GEE or a GCP bucket.*
-  
-</details>
-
-<details>
-  <summary>🔹 Enterprise Version: GRAI 2.0</summary>
-  
-  **❓ What is GRAI 2.0?**  
-  *GRAI 2.0 is the enterprise version of this project, offering:*
-  - *Custom-built solutions tailored to specific client needs.*
-  - *Additional analyses &amp; AI models not included in the open-source version.*
-  - *Continuous updates &amp; premium support.*
-  
-  **❓ How do I get access to GRAI 2.0?**  
-  *For enterprise inquiries, please visit the [GeoRetina Contact Page](https://www.georetina.com/contact).*
-  
-</details>
-
-<details>
-  <summary>🔹 Technical &amp; Setup Questions</summary>
-  
-  **❓ I'm facing issues with setup. What should I do?**  
-  1. *Check that your environment variables are properly set in `.env.local`.*
-  2. *To get past the login page, you need to first set up a Supabase Auth as described in [Supabase Setup](#how-to-set-up-supabase-database-storage-bucket--authentication-%EF%B8%8F).*
-  3. *Check your database configurations.*
-  4. *Confirm your Google Earth Engine configuration.*
-  5. *Refer to the [Getting Started](#getting-started) section in this README.*
-  6. *If issues persist, [open an issue](../../issues).*
-  
-</details>
-
-*Have a question not listed here? Feel free to [open an issue](../../issues) or reach out via email!* 🚀
-
-
-
-
+Contact: If you are interested in contributing, have a feature request, or need to report a bug, please [suspicious link removed] on GitHub. For direct inquiries, you may reach the primary developer, Sameer Raj, via an open issue.
