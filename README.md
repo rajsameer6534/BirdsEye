@@ -1,15 +1,15 @@
-# Chat2Geo: A ChatGPT-Like Web App for Remote-Sensing-Based Geospatial Analysis
+# BirdsEye:Remote-Sensing-Based Geospatial Analysis
 
-Chat2Geo is a Next.js 15 application providing a chatbot-like user interface for performing remote-sensing-based geospatial analyses. It leverages Google Earth Engine (GEE) in the backend to process and analyze various remote sensing datasets in real time. Users can upload their own vector data, run advanced geospatial queries, and integrate the results with an AI Assistant for specialized tasks such as **land cover mapping**, **change detection**, and **air pollutant monitoring**. 
+BirdsEye is a Next.js 15 application providing a chatbot-like user interface for performing remote-sensing-based geospatial analyses. It leverages Google Earth Engine (GEE) in the backend to process and analyze various remote sensing datasets in real time. Users can upload their own vector data, run advanced geospatial queries, and integrate the results with an AI Assistant for specialized tasks such as **land cover mapping**, **change detection**, and **air pollutant monitoring**. 
 
-Chat2Geo also has advanced knowledge retrieval based on Retrieval-augmented generation (RAG), which can integrate geospatial analysis with non-geospatial/textual information. 
+BirdsEye also has advanced knowledge retrieval based on Retrieval-augmented generation (RAG), which can integrate geospatial analysis with non-geospatial/textual information. 
 
 The app also has authentication and database integrations, making it almost a complete package. 
 
-Chat2Geo inherits a large portion of its building blocks from the GRAI 2.0 app that is under development at GeoRetina (www.georetina.com). In parallel with GRAI 2.0 (which will be merged to Chat2Geo once it's stable), we will also keep Chat2Geo updated for the community.
+BirdsEye inherits a large portion of its building blocks from the GRAI 2.0 app that is under development at GeoRetina (www.georetina.com). In parallel with GRAI 2.0 (which will be merged to BirdsEye once it's stable), we will also keep BirdsEye updated for the community.
 
-### 🌍 Try Chat2Geo: 
-https://chat2geo.georetina.ai
+### 🌍 Try BirdsEye: 
+https://BirdsEye.georetina.ai
 
 ----
 
